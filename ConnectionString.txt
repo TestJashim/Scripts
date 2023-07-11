@@ -1,0 +1,33 @@
+https://freeasphosting.net/
+
+//"DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=ProjectTeamTaskManagementDB;Trusted_Connection=True;MultipleActiveResultSets=true"
+
+builder.Services.AddDbContext<EmployeeContext>(
+    options =>
+    {
+        options.UseSqlServer(builder.Configuration.GetConnectionString("EmployeeContext"));
+    });
+
+
+(localdb)\MSSQLLocalDB
+Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=DapperDB
+
+// Enabling Cors
+app.UseCors(policy => policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+
+
+===========Identity===================
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+
+namespace IdentityTokenRoleApi.Data
+{
+    public class ApplicationDbContext : IdentityDbContext
+    {
+        public ApplicationDbContext(DbContextOptions option) : base(option)
+        {
+
+        }
+    }
+}
+===========Identity===================
